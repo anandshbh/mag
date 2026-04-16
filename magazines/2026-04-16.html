@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Edition &mdash; April 16, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ff-display: 'Fraunces', serif; --ff-body: 'Inter', sans-serif; }
+body { background: #0a0a0a; color: #f0ede8; font-family: var(--ff-body); overflow-x: hidden; }
+
+/* ── MASTHEAD ── */
+.masthead {
+  border-bottom: 2px solid #f0ede8;
+  padding: 2rem 2.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.masthead-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+.masthead-title {
+  font-family: var(--ff-display);
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #f0ede8;
+}
+.masthead-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 0.75rem;
+}
+.ticker-wrap {
+  background: #f0ede8;
+  color: #0a0a0a;
+  padding: 0.4rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-content {
+  display: inline-block;
+  animation: ticker 40s linear infinite;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+@keyframes ticker {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid #1e1e1e;
+}
+.section-divider span {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+  white-space: nowrap;
+}
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #1e1e1e;
+}
+
+/* ── STORY 01: COVER ── */
+.story-cover {
+  min-height: 92vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 3rem 2.5rem 2.5rem;
+  position: relative;
+  border-bottom: 1px solid #1e1e1e;
+  background: #0a0a0a;
+}
+.story-cover::before {
+  content: '01';
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  font-family: var(--ff-display);
+  font-size: 12rem;
+  font-weight: 900;
+  color: #111;
+  line-height: 1;
+  pointer-events: none;
+}
+.story-cover .kicker {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #f0ede8;
+  color: #0a0a0a;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 2rem;
+}
+.story-cover h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 16ch;
+  letter-spacing: -0.03em;
+}
+.story-cover .deck {
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #c0bdb8;
+  max-width: 55ch;
+}
+.story-cover .source-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666;
+}
+.story-cover .source-row a { color: #888; text-decoration: none; }
+.story-cover .source-row a:hover { color: #f0ede8; }
+
+/* ── STORY 02: MIDNIGHT ── */
+.story-midnight {
+  background: #06060e;
+  padding: 3rem 2.5rem;
+  border-bottom: 1px solid #1e1e1e;
+  position: relative;
+  overflow: hidden;
+}
+.story-midnight::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100,0,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.story-midnight .story-num {
+  font-family: var(--ff-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #7b2fff;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.story-midnight h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #e8e0ff;
+  line-height: 1.1;
+  max-width: 22ch;
+}
+.story-midnight .neon-label {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #7b2fff;
+  color: #c0a0ff;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.story-midnight .deck {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #9090c0;
+  max-width: 60ch;
+}
+.story-midnight .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; }
+.story-midnight .source-row a { color: #7b2fff; text-decoration: none; }
+
+/* ── STORY 03: ROSE ── */
+.story-rose {
+  background: #2a1015;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 3rem 2.5rem;
+  position: relative;
+}
+.story-rose .stamp {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #e05070;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e05070;
+  text-align: center;
+  line-height: 1.4;
+  transform: rotate(12deg);
+}
+.story-rose h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #f5c0c8;
+  line-height: 1.15;
+  max-width: 26ch;
+}
+.story-rose .kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e05070;
+  margin-bottom: 0.75rem;
+}
+.story-rose .deck {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #c08090;
+  max-width: 55ch;
+}
+.story-rose .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #703040; text-transform: uppercase; letter-spacing: 0.1em; }
+.story-rose .source-row a { color: #e05070; text-decoration: none; }
+
+/* ── STORY 04: TERMINAL ── */
+.story-terminal {
+  background: #001a00;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 3rem 2.5rem;
+  font-family: 'Courier New', monospace;
+}
+.story-terminal .term-header {
+  font-size: 0.7rem;
+  color: #00aa00;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.story-terminal h2 {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #00ff44;
+  line-height: 1.2;
+  max-width: 48ch;
+}
+.story-terminal h2::before { content: '> '; color: #00aa00; }
+.story-terminal .deck {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #007700;
+  max-width: 60ch;
+}
+.story-terminal .deck::before { content: '$ '; color: #00aa00; }
+.story-terminal .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #005500; letter-spacing: 0.05em; }
+.story-terminal .source-row a { color: #00aa00; text-decoration: none; }
+.story-terminal .cursor { display: inline-block; width: 10px; height: 1.1em; background: #00ff44; animation: blink 1s step-end infinite; vertical-align: text-bottom; margin-left: 2px; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ── STORY 05: ACADEMIC ── */
+.story-academic {
+  padding: 3rem 2.5rem;
+  border-bottom: 1px solid #1e1e1e;
+  max-width: 100%;
+}
+.story-academic .kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-body);
+}
+.story-academic h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: #f0ede8;
+  line-height: 1.15;
+  max-width: 32ch;
+  margin-bottom: 1.5rem;
+}
+.story-academic .drop-cap-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #c0bdb8;
+  max-width: 65ch;
+  column-count: 2;
+  column-gap: 3rem;
+}
+.story-academic .drop-cap-text::first-letter {
+  font-family: var(--ff-display);
+  font-size: 4.5em;
+  font-weight: 800;
+  float: left;
+  line-height: 0.75;
+  margin-right: 0.1em;
+  color: #f0ede8;
+}
+.story-academic .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; clear: both; }
+.story-academic .source-row a { color: #888; text-decoration: none; }
+
+/* ── STORY 06: BIG-STAT ── */
+.story-bigstat {
+  background: #0d0d0d;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 3rem 2.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.story-bigstat .stat-hero {
+  font-family: var(--ff-display);
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #f0ede8;
+  position: relative;
+}
+.story-bigstat .stat-hero span {
+  font-size: 0.35em;
+  display: block;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-top: 0.25em;
+}
+.story-bigstat .stat-content h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #f0ede8;
+  max-width: 28ch;
+}
+.story-bigstat .stat-content .deck {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #888;
+  max-width: 48ch;
+}
+.story-bigstat .source-row { margin-top: 1.25rem; font-size: 0.68rem; color: #555; text-transform: uppercase; letter-spacing: 0.1em; }
+.story-bigstat .source-row a { color: #888; text-decoration: none; }
+@media (max-width: 600px) {
+  .story-bigstat { grid-template-columns: 1fr; }
+}
+
+/* ── STORY 07: BLUEPRINT ── */
+.story-blueprint {
+  background: #040c18;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.story-blueprint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(30,100,200,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,100,200,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.story-blueprint .bp-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4a90d9;
+  margin-bottom: 0.75rem;
+}
+.story-blueprint h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #a8d4ff;
+  line-height: 1.15;
+  max-width: 28ch;
+  position: relative;
+}
+.story-blueprint .deck {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #5080a0;
+  max-width: 60ch;
+  position: relative;
+}
+.story-blueprint .bp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  position: relative;
+}
+.story-blueprint .bp-card {
+  border: 1px solid rgba(74,144,217,0.3);
+  padding: 1rem;
+  background: rgba(10,30,60,0.6);
+}
+.story-blueprint .bp-card .bp-card-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4a90d9;
+  margin-bottom: 0.4rem;
+}
+.story-blueprint .bp-card p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #6090b0;
+}
+.story-blueprint .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #2a5070; text-transform: uppercase; letter-spacing: 0.1em; position: relative; }
+.story-blueprint .source-row a { color: #4a90d9; text-decoration: none; }
+
+/* ── STORY 08: ALERT ── */
+.story-alert {
+  background: #120d00;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 0 0 2.5rem;
+}
+.story-alert .amber-tape {
+  background: #f59e0b;
+  color: #000;
+  padding: 0.5rem 2.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 2rem;
+}
+.story-alert .alert-body {
+  padding: 0 2.5rem;
+}
+.story-alert h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #fcd34d;
+  line-height: 1.15;
+  max-width: 28ch;
+}
+.story-alert .deck {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #9a7020;
+  max-width: 58ch;
+}
+.story-alert .alert-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.story-alert .badge {
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
+  font-size: 0.62rem;
+  padding: 0.2rem 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.story-alert .source-row { margin-top: 1.25rem; font-size: 0.68rem; color: #5a4010; text-transform: uppercase; letter-spacing: 0.1em; }
+.story-alert .source-row a { color: #f59e0b; text-decoration: none; }
+
+/* ── STORY 09: CLOUD ── */
+.story-cloud {
+  background: #08081a;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.story-cloud::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.story-cloud::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.story-cloud .cloud-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+.story-cloud h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #bae6fd;
+  line-height: 1.15;
+  max-width: 28ch;
+  position: relative;
+}
+.story-cloud .deck {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #38637a;
+  max-width: 58ch;
+  position: relative;
+}
+.story-cloud .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #1a4060; text-transform: uppercase; letter-spacing: 0.1em; position: relative; }
+.story-cloud .source-row a { color: #38bdf8; text-decoration: none; }
+
+/* ── STORY 10: HEAT ── */
+.story-heat {
+  padding: 3rem 2.5rem;
+  background: linear-gradient(135deg, #1a0800 0%, #1a0610 50%, #0d0015 100%);
+  position: relative;
+  overflow: hidden;
+}
+.story-heat::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: 5%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(255,80,0,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.story-heat .heat-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: 0.75rem;
+}
+.story-heat h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #fed7aa;
+  line-height: 1.15;
+  max-width: 28ch;
+}
+.story-heat .deck {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #9a5020;
+  max-width: 58ch;
+}
+.story-heat .heat-bar {
+  margin-top: 1.5rem;
+  height: 4px;
+  background: linear-gradient(90deg, #f97316, #ec4899, #7c3aed);
+  max-width: 300px;
+}
+.story-heat .source-row { margin-top: 1.5rem; font-size: 0.68rem; color: #7a3010; text-transform: uppercase; letter-spacing: 0.1em; }
+.story-heat .source-row a { color: #f97316; text-decoration: none; }
+
+/* ── FOOTER ── */
+.mag-footer {
+  border-top: 2px solid #f0ede8;
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.mag-footer .footer-left {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f0ede8;
+}
+.mag-footer .footer-right {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+  text-align: right;
+  line-height: 1.8;
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <p class="masthead-eyebrow">Est. 2026 &nbsp;&bull;&nbsp; Technology &middot; Science &middot; Infrastructure</p>
+  <h1 class="masthead-title">Morning Edition</h1>
+  <div class="masthead-meta">
+    <span>Thursday, April 16, 2026</span>
+    <span>Issue 016</span>
+    <span>10 Stories</span>
+  </div>
+</header>
+
+<div class="ticker-wrap">
+  <span class="ticker-content">
+    &nbsp;&nbsp;&nbsp;&nbsp; LINUX 7.0 RELEASED &nbsp;&middot;&nbsp; ANTHROPIC CLAUDE MYTHOS PREVIEW &nbsp;&middot;&nbsp; MISTRAL LARGE 3 APACHE 2.0 &nbsp;&middot;&nbsp; GOOGLE CLOUD NEXT APRIL 22&ndash;24 &nbsp;&middot;&nbsp; MCP CROSSES 97M INSTALLS &nbsp;&middot;&nbsp; MICROSOFT PATCHES 167 CVEs &nbsp;&middot;&nbsp; KUBERNETES v1.36 INCOMING &nbsp;&middot;&nbsp; WINDOWS RDP PHISHING DEFENSE &nbsp;&middot;&nbsp; NUTANIX NKP METAL &nbsp;&middot;&nbsp; GPT-6 &ldquo;SPUD&rdquo; Q2 2026 &nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- ── STORY 01: COVER ── -->
+<article class="story-cover">
+  <div>
+    <div class="kicker">&#9670; Cover Story &middot; Linux</div>
+    <h1>Linux 7.0 Lands&mdash;Rust Enters the Kernel Mainstream</h1>
+    <p class="deck">
+      Linus Torvalds shipped Linux 7.0 on April 12, marking the first major version bump since the 6.x series began. The release cements Rust as a first-class language for kernel development, introduces a revamped process scheduler, self-healing XFS, and broadened support for ARM, RISC-V, and AMD EPYC 5 KVM hypervisors. Ubuntu 26.04 LTS &ldquo;Resolute Raccoon&rdquo; will ship it as default on April 23; Arch and openSUSE Tumbleweed packages are already rolling.
+    </p>
+    <div class="source-row">
+      <span>Source:</span>
+      <a href="https://www.theregister.com/2026/04/13/linux_kernel_7_releaseed/" target="_blank">The Register &rarr;</a>
+      <a href="https://9to5linux.com/linux-7-0-kernel-confirmed-by-linus-torvalds-expected-in-mid-april-2026" target="_blank">9to5Linux &rarr;</a>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"><span>02 &mdash; AI &amp; Agents</span></div>
+
+<!-- ── STORY 02: MIDNIGHT ── -->
+<article class="story-midnight">
+  <div class="story-num">Story 02 &nbsp;&#9654;&nbsp; AI / Anthropic</div>
+  <h2>Anthropic Unveils Claude Mythos Preview via Project Glasswing</h2>
+  <div class="neon-label">&#9632; Closed Preview &nbsp;|&nbsp; ~50 Partners</div>
+  <p class="deck">
+    Announced on April 7, Claude Mythos Preview is a step-change above Claude Opus 4.6, available exclusively through Project Glasswing to roughly 50 select partner organizations. Anthropic positions the model around three pillars: advanced cybersecurity vulnerability detection, long-horizon reasoning, and complex coding&mdash;describing it as a &ldquo;research frontier&rdquo; release ahead of a broader launch. Partners include security firms and government research labs.
+  </p>
+  <div class="source-row">
+    Source: <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank">WhatLLM.org &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>03 &mdash; Open Source Models</span></div>
+
+<!-- ── STORY 03: ROSE ── -->
+<article class="story-rose">
+  <div class="kicker">Open Source &middot; Mistral AI</div>
+  <div class="stamp">NEW<br>MODEL<br>DROP</div>
+  <h2>Mistral Large 3 Ships Apache 2.0 &mdash; 675B Parameters, Commercial-Friendly</h2>
+  <p class="deck">
+    Mistral&rsquo;s latest flagship is a sparse mixture-of-experts model with 675B total parameters and 41B active at inference time. Released under the permissive Apache 2.0 license, it debuts at #2 on LMArena&rsquo;s OSS non-reasoning leaderboard. Alongside it, Codestral 2 outperforms GPT-4o on HumanEval and MBPP benchmarks, offering fill-in-the-middle code completion under the same open license&mdash;a direct challenge to proprietary coding assistants.
+  </p>
+  <div class="source-row">
+    Source: <a href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank">Fazm Blog &rarr;</a> &nbsp;&middot;&nbsp; <a href="https://mistral.ai/news/mistral-3" target="_blank">Mistral AI &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>04 &mdash; Cloud Infrastructure</span></div>
+
+<!-- ── STORY 04: TERMINAL ── -->
+<article class="story-terminal">
+  <div class="term-header">$ kubectl get news --namespace=cloud-next-2026</div>
+  <h2>Google Cloud Next 2026: GKE Bets on AI Supercomputing&nbsp;<span class="cursor"></span></h2>
+  <p class="deck">Google Cloud Next convenes April 22&ndash;24 in Las Vegas. Google Kubernetes Engine (GKE) takes center stage as Google&rsquo;s bid to evolve its container platform into a next-gen AI supercomputing backbone for high-performance inference and training workloads at scale.</p>
+  <div class="source-row">
+    Source: <a href="https://siliconangle.com/2026/04/15/google-cloud-next-2026-thecube-cloud-infrastructure-googlecloudnext/" target="_blank">SiliconANGLE &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>05 &mdash; Agentic Protocols</span></div>
+
+<!-- ── STORY 05: ACADEMIC ── -->
+<article class="story-academic">
+  <div class="kicker">Deep Dive &middot; Agentic AI Foundation</div>
+  <h2>Model Context Protocol Crosses 97 Million Installs as Agentic Foundation Takes Shape</h2>
+  <p class="drop-cap-text">
+    Anthropic&rsquo;s Model Context Protocol (MCP) surpassed 97 million installs in March 2026, cementing its position as the lingua franca of tool-using AI agents. The Agentic AI Foundation, formed under the Linux Foundation in December 2025, anchors the specification alongside OpenAI&rsquo;s AGENTS.md and Block&rsquo;s goose framework. Together they form an interoperability layer allowing agents built on different models to share context, invoke tools, and hand off tasks across organizational boundaries&mdash;an infrastructure layer the industry has needed since multi-agent workflows became production reality. The March milestone follows explosive adoption among IDE plugins, CI/CD integrations, and enterprise automation platforms now embedding MCP as a first-class interface standard.
+  </p>
+  <div class="source-row">
+    Source: <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank">WhatLLM &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>06 &mdash; Security</span></div>
+
+<!-- ── STORY 06: BIG-STAT ── -->
+<article class="story-bigstat">
+  <div class="stat-hero">
+    167
+    <span>CVEs Patched</span>
+  </div>
+  <div class="stat-content">
+    <h2>Microsoft April 2026 Patch Tuesday Squashes 167 Vulnerabilities &amp; Two Zero-Days</h2>
+    <p class="deck">
+      This month&rsquo;s Patch Tuesday is among the largest in recent history: 167 vulnerabilities addressed, including one actively exploited zero-day and a second publicly disclosed before the patch dropped. The update also adds RDP file warnings to Windows 11, expanding Smart App Control flexibility and rolling out Narrator image descriptions to all PCs&mdash;not just Copilot+ hardware.
+    </p>
+    <div class="source-row">
+      Source: <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-april-2026-patch-tuesday-fixes-167-flaws-2-zero-days/" target="_blank">BleepingComputer &rarr;</a>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"><span>07 &mdash; Kubernetes / IaC</span></div>
+
+<!-- ── STORY 07: BLUEPRINT ── -->
+<article class="story-blueprint">
+  <div class="bp-label">&#9632; Kubernetes &middot; v1.36</div>
+  <h2>Kubernetes v1.36 Arrives End of April &mdash; AI Autoscaling &amp; Self-Healing Front &amp; Center</h2>
+  <p class="deck">
+    The forthcoming v1.36 release sharpens Kubernetes&rsquo; focus on AI workloads: improved scheduling queue depth observability, faster node provisioning latency reporting, and enhanced disruption-event tracking. Meanwhile, Nutanix&rsquo;s NKP Metal extends Kubernetes to bare-metal with a dual-native architecture, bridging the gap between cloud-native and on-prem AI/edge deployments.
+  </p>
+  <div class="bp-cards">
+    <div class="bp-card">
+      <div class="bp-card-title">&#9632; Adoption</div>
+      <p>82% of orgs now run Kubernetes in production; 84% plan to build most new apps on it.</p>
+    </div>
+    <div class="bp-card">
+      <div class="bp-card-title">&#9632; Observability</div>
+      <p>CPU utilization no longer sufficient &mdash; queue depth &amp; provisioning latency are the new signals.</p>
+    </div>
+    <div class="bp-card">
+      <div class="bp-card-title">&#9632; NKP Metal</div>
+      <p>Nutanix extends NKP to bare-metal for AI &amp; edge with dual-native architecture.</p>
+    </div>
+  </div>
+  <div class="source-row">
+    Source: <a href="https://kubernetes.io/blog/" target="_blank">Kubernetes Blog &rarr;</a> &nbsp;&middot;&nbsp; <a href="https://shyam.kubeify.com/2026/04/latest-devops-cloud-news-11-april-2026.html" target="_blank">Kubeify &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>08 &mdash; Windows Security</span></div>
+
+<!-- ── STORY 08: ALERT ── -->
+<article class="story-alert">
+  <div class="amber-tape">
+    &#9888;&nbsp; SECURITY ALERT &nbsp;&#9679;&nbsp; WINDOWS 11 &nbsp;&#9679;&nbsp; RDP PHISHING VECTOR &nbsp;&#9679;&nbsp; PATCH NOW &nbsp;&#9888;&nbsp; SECURITY ALERT &nbsp;&#9679;&nbsp; WINDOWS 11 &nbsp;&#9679;&nbsp; RDP PHISHING VECTOR &nbsp;&#9679;&nbsp; PATCH NOW &nbsp;&#9888;
+  </div>
+  <div class="alert-body">
+    <h2>Windows 11 April Update Intercepts .RDP File Phishing Campaigns</h2>
+    <p class="deck">
+      Microsoft&rsquo;s April 2026 cumulative update for Windows 11 introduces runtime warnings whenever an .rdp file sourced from an external or untrusted location attempts to execute. The change directly targets a rising wave of phishing campaigns that weaponize Remote Desktop configuration files to achieve lateral movement. The update also removes the long-standing restriction requiring a clean reinstall to disable Smart App Control.
+    </p>
+    <div class="alert-badges">
+      <span class="badge">RDP Security</span>
+      <span class="badge">Zero-Day</span>
+      <span class="badge">KB5083769</span>
+      <span class="badge">Phishing Defense</span>
+      <span class="badge">Win 11 25H2</span>
+    </div>
+    <div class="source-row">
+      Source: <a href="https://windowsnews.ai/article/microsofts-april-2026-windows-update-adds-rdp-file-warnings-to-combat-phishing-attacks.413401" target="_blank">Windows News &rarr;</a> &nbsp;&middot;&nbsp; <a href="https://www.bleepingcomputer.com/news/microsoft/windows-11-cumulative-updates-kb5083769-and-kb5082052-released/" target="_blank">BleepingComputer &rarr;</a>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"><span>09 &mdash; Cloud Native</span></div>
+
+<!-- ── STORY 09: CLOUD ── -->
+<article class="story-cloud">
+  <div class="cloud-label">&#9679; Cloud Native &middot; Agentic AI</div>
+  <h2>Claude Code Goes Standalone: Anthropic Ships Terminal-Native Agentic Dev Tool</h2>
+  <p class="deck">
+    Anthropic has launched Claude Code as a standalone product beyond its previous developer preview. The terminal-native agent powered by Claude Sonnet 4.6 (with optional Opus 4.6 backend) can autonomously clone repositories, write and execute tests, fix failing CI pipelines, and open pull requests. The launch signals a new competitive front in agentic developer tooling, squaring up against GitHub Copilot Workspace and Cursor&rsquo;s background agents.
+  </p>
+  <div class="source-row">
+    Source: <a href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank">WhatLLM &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>10 &mdash; AI Frontier</span></div>
+
+<!-- ── STORY 10: HEAT ── -->
+<article class="story-heat">
+  <div class="heat-label">&#9650; AI Frontier &middot; OpenAI</div>
+  <h2>GPT-6 &ldquo;Spud&rdquo; Training Complete &mdash; Launch Window Narrows to Q2</h2>
+  <p class="deck">
+    OpenAI completed pre-training on the GPT-6 model internally codenamed &ldquo;Spud&rdquo; on March 24, 2026. Sam Altman described the launch as &ldquo;a few weeks&rdquo; away on that date. Despite a flurry of unverified &ldquo;April 14&rdquo; leak claims, no official announcement, model card, or API endpoint has materialized as of today. The most credible consensus from AI researchers places the public release between late April and late May. The model is said to use a two-tier inference framework reducing hallucination rates below 0.1%.
+  </p>
+  <div class="heat-bar"></div>
+  <div class="source-row">
+    Source: <a href="https://findskill.ai/blog/gpt-6-release-date/" target="_blank">FindSkill.ai &rarr;</a> &nbsp;&middot;&nbsp; <a href="https://felloai.com/all-we-know-about-chatgpt-6/" target="_blank">Fello AI &rarr;</a>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer class="mag-footer">
+  <div class="footer-left">Morning Edition</div>
+  <div class="footer-right">
+    10 stories &middot; curated from Hacker News &amp; the tech web<br>
+    AI &middot; Cloud &middot; Linux &middot; Microsoft &middot; DevOps<br>
+    Thursday, April 16, 2026 &nbsp;&mdash;&nbsp; Issue 016
+  </div>
+</footer>
+
+</body>
+</html>
