@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Edition — April 19, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ff-display: 'Fraunces', serif; --ff-body: 'Inter', sans-serif; }
+body { background: #0a0a0a; color: #f0ede8; font-family: var(--ff-body); overflow-x: hidden; }
+
+/* ── MASTHEAD ── */
+.masthead {
+  border-bottom: 2px solid #f0ede8;
+  padding: 2rem 3rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+.masthead-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.masthead-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.masthead-title {
+  font-family: var(--ff-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.masthead-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 0.4rem;
+}
+.ticker {
+  background: #f0ede8;
+  color: #0a0a0a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.5rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: ticker-scroll 40s linear infinite;
+}
+@keyframes ticker-scroll {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ── DIVIDERS ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+  border-top: 1px solid rgba(240,237,232,0.15);
+}
+.section-divider span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  white-space: nowrap;
+}
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(240,237,232,0.15);
+}
+
+/* ── STORY BASE ── */
+.story {
+  padding: 4rem 3rem;
+  position: relative;
+  border-bottom: 1px solid rgba(240,237,232,0.08);
+}
+.story-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+.story-source-link {
+  text-decoration: none;
+  color: inherit;
+}
+.story-source-link:hover { opacity: 0.7; }
+.read-more {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.read-more:hover { opacity: 1; }
+
+/* ── 01: COVER / LEAD ── */
+.story-cover {
+  min-height: 80vh;
+  display: grid;
+  place-items: start;
+  padding: 5rem 3rem;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+.story-cover::before {
+  content: '7.0';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--ff-display);
+  font-size: 28vw;
+  font-weight: 900;
+  color: rgba(240,237,232,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.story-cover .cover-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #a8ff78;
+  margin-bottom: 1.5rem;
+}
+.story-cover h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  max-width: 14ch;
+  margin-bottom: 2rem;
+}
+.story-cover .deck {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 55ch;
+  opacity: 0.75;
+  font-weight: 300;
+}
+.cover-facts {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+.cover-fact-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 0.3rem;
+}
+.cover-fact-value {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* ── 02: DARK/MIDNIGHT ── */
+.story-midnight {
+  background: #060610;
+  color: #e0e0ff;
+  position: relative;
+  overflow: hidden;
+}
+.story-midnight::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(80,40,200,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.story-midnight .story-tag { color: #7b5fff; }
+.story-midnight h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 20ch;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #e0e0ff 0%, #7b5fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.story-midnight p {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 60ch;
+  opacity: 0.75;
+  font-weight: 300;
+}
+.neon-badge {
+  display: inline-block;
+  background: rgba(123,95,255,0.15);
+  border: 1px solid rgba(123,95,255,0.4);
+  color: #a88fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+  margin-top: 1.5rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+/* ── 03: ROSE/STAMP ── */
+.story-rose {
+  background: #2a0a12;
+  color: #ffe8ec;
+  border-left: 6px solid #ff6b87;
+}
+.story-rose .story-tag { color: #ff6b87; }
+.story-rose h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 22ch;
+  margin-bottom: 1.2rem;
+}
+.story-rose p {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 60ch;
+  opacity: 0.8;
+  font-weight: 300;
+}
+.rose-stamp {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(255,107,135,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255,107,135,0.6);
+}
+
+/* ── 04: TERMINAL ── */
+.story-terminal {
+  background: #000d00;
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  border: 1px solid rgba(0,255,65,0.15);
+}
+.story-terminal .story-tag { color: #00ff41; opacity: 0.6; font-family: 'Courier New', monospace; }
+.story-terminal h2 {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 40ch;
+  margin-bottom: 1.2rem;
+  color: #00ff41;
+}
+.story-terminal p {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 60ch;
+  opacity: 0.8;
+}
+.terminal-prompt::before { content: '$ '; opacity: 0.5; }
+.terminal-block {
+  background: rgba(0,255,65,0.05);
+  border: 1px solid rgba(0,255,65,0.1);
+  padding: 1rem 1.2rem;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+.terminal-block .line { opacity: 0.7; }
+.terminal-block .line.hi { opacity: 1; color: #a8ff78; }
+
+/* ── 05: ACADEMIC ── */
+.story-academic {
+  background: #0d0c08;
+  max-width: none;
+  position: relative;
+}
+.story-academic::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f0ede8 0%, transparent 100%);
+}
+.story-academic .story-tag { color: rgba(240,237,232,0.4); }
+.story-academic h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 28ch;
+  margin-bottom: 1.5rem;
+}
+.story-academic .drop-cap-para::first-letter {
+  font-family: var(--ff-display);
+  font-size: 4.5rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.75;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
+}
+.story-academic p {
+  font-size: 1rem;
+  line-height: 1.85;
+  max-width: 65ch;
+  font-weight: 300;
+}
+.story-academic p + p { margin-top: 1rem; }
+
+/* ── 06: BIG-STAT ── */
+.story-bigstat {
+  background: #0a0a0a;
+  text-align: center;
+  padding: 5rem 3rem;
+}
+.story-bigstat .story-tag { color: rgba(240,237,232,0.4); text-align: left; }
+.bigstat-number {
+  font-family: var(--ff-display);
+  font-size: clamp(6rem, 20vw, 16rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #f0ede8;
+  display: block;
+}
+.bigstat-unit {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.story-bigstat h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 30ch;
+  margin: 0 auto 1rem;
+}
+.story-bigstat p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 55ch;
+  margin: 0 auto;
+  opacity: 0.65;
+}
+
+/* ── 07: BLUEPRINT ── */
+.story-blueprint {
+  background: #020b18;
+  color: #b8d8f0;
+  position: relative;
+  overflow: hidden;
+}
+.story-blueprint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(40,100,200,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40,100,200,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.story-blueprint .story-tag { color: #4da6ff; position: relative; }
+.story-blueprint h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 24ch;
+  margin-bottom: 1.5rem;
+  position: relative;
+  color: #e8f4ff;
+}
+.blueprint-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.blueprint-card {
+  border: 1px solid rgba(77,166,255,0.2);
+  padding: 1.2rem;
+  background: rgba(4,20,50,0.8);
+}
+.blueprint-card-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4da6ff;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+.blueprint-card-value {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+.story-blueprint p {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 60ch;
+  opacity: 0.75;
+  position: relative;
+}
+
+/* ── 08: ALERT/AMBER ── */
+.story-alert {
+  background: #110800;
+  color: #ffe8b0;
+  position: relative;
+  overflow: hidden;
+}
+.alert-tape {
+  background: #ffb700;
+  color: #110800;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  white-space: nowrap;
+}
+.alert-tape-inner {
+  display: inline-block;
+  animation: ticker-scroll 30s linear infinite;
+}
+.story-alert .story-tag { color: #ffb700; }
+.story-alert h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 22ch;
+  margin-bottom: 1.2rem;
+}
+.story-alert p {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 60ch;
+  opacity: 0.8;
+}
+.alert-cve {
+  display: inline-block;
+  background: rgba(255,183,0,0.1);
+  border: 1px solid rgba(255,183,0,0.3);
+  color: #ffb700;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* ── 09: CLOUD GRADIENT ── */
+.story-cloud {
+  background: #060a18;
+  position: relative;
+  overflow: hidden;
+  min-height: 50vh;
+}
+.cloud-orb-1, .cloud-orb-2, .cloud-orb-3 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cloud-orb-1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%);
+  top: -100px; right: -50px;
+}
+.cloud-orb-2 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
+  bottom: -50px; left: 10%;
+}
+.cloud-orb-3 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+  top: 20%; left: 40%;
+}
+.story-cloud .story-tag { color: #6366f1; position: relative; }
+.story-cloud h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 22ch;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.story-cloud p {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 60ch;
+  opacity: 0.75;
+  position: relative;
+}
+.cloud-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  position: relative;
+}
+.cloud-tag-pill {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(99,102,241,0.3);
+  color: #a5b4fc;
+}
+
+/* ── 10: HEAT ── */
+.story-heat {
+  background: linear-gradient(135deg, #1a0500 0%, #0d0a00 50%, #150010 100%);
+  position: relative;
+  overflow: hidden;
+}
+.story-heat::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,100,0,0.08) 0%, rgba(200,0,100,0.05) 100%);
+  pointer-events: none;
+}
+.story-heat .story-tag { color: #ff6b35; position: relative; }
+.story-heat h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 22ch;
+  margin-bottom: 1.2rem;
+  position: relative;
+  background: linear-gradient(135deg, #ff6b35, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.story-heat p {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 60ch;
+  opacity: 0.8;
+  position: relative;
+  color: #ffe8d8;
+}
+.heat-scores {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  flex-wrap: wrap;
+}
+.heat-score {
+  text-align: center;
+}
+.heat-score-pct {
+  font-family: var(--ff-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff6b35, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.heat-score-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 0.2rem;
+}
+
+/* ── FOOTER ── */
+.magazine-footer {
+  border-top: 2px solid rgba(240,237,232,0.15);
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+  opacity: 0.5;
+}
+.footer-brand {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 900;
+}
+.footer-meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  text-align: right;
+}
+</style>
+</head>
+<body>
+
+<!-- ── MASTHEAD ── -->
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-meta">Est. 2025 &nbsp;&bull;&nbsp; Issue 005</div>
+    <div class="masthead-meta">Sunday, April 19, 2026</div>
+    <div class="masthead-meta">15 Stories</div>
+  </div>
+  <div class="masthead-title">Morning Edition</div>
+  <div class="masthead-subtitle">Technology &middot; Infrastructure &middot; Leadership &middot; Open Source</div>
+  <div class="ticker">
+    <span class="ticker-inner">
+      &nbsp;&nbsp;&bull;&nbsp;&nbsp; AI &middot; LLMs &middot; Agents &nbsp;&bull;&nbsp; Cloud &middot; Kubernetes &middot; DevOps &nbsp;&bull;&nbsp; Azure &nbsp;&bull;&nbsp; Linux &nbsp;&bull;&nbsp; Microsoft &middot; Windows &nbsp;&bull;&nbsp; Engineering Leadership &nbsp;&bull;&nbsp; Infrastructure as Code &nbsp;&bull;&nbsp; Open Source &nbsp;&bull;&nbsp; Security &nbsp;&bull;&nbsp; AI &middot; LLMs &middot; Agents &nbsp;&bull;&nbsp; Cloud &middot; Kubernetes &middot; DevOps &nbsp;&bull;&nbsp; Azure &nbsp;&bull;&nbsp; Linux &nbsp;&bull;&nbsp; Microsoft &middot; Windows &nbsp;&bull;&nbsp; Engineering Leadership &nbsp;&bull;&nbsp; Infrastructure as Code &nbsp;&bull;&nbsp; Open Source &nbsp;&bull;&nbsp; Security &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+    </span>
+  </div>
+</header>
+
+<!-- ── STORY 01: COVER ── -->
+<article class="story story-cover">
+  <div>
+    <div class="cover-label">&#9679; Breaking &mdash; Linux</div>
+    <span class="story-tag">Story 01 &mdash; Lead</span>
+    <h1>Linux 7.0 Arrives &mdash; Rust Is Now Official</h1>
+    <p class="deck">
+      Linus Torvalds released Linux kernel 7.0 on April 13, 2026 &mdash; a major version bump that marks the formal graduation of Rust as an officially supported kernel language, brings self-healing XFS, deeper ARM and RISC-V support, and sets the foundation for Ubuntu 26.04 LTS shipping to millions on April 23.
+    </p>
+    <div class="cover-facts">
+      <div>
+        <div class="cover-fact-label">Released</div>
+        <div class="cover-fact-value">April 13, 2026</div>
+      </div>
+      <div>
+        <div class="cover-fact-label">Major Feature</div>
+        <div class="cover-fact-value">Rust Support</div>
+      </div>
+      <div>
+        <div class="cover-fact-label">Ships With</div>
+        <div class="cover-fact-value">Ubuntu 26.04 LTS</div>
+      </div>
+      <div>
+        <div class="cover-fact-label">New FS Feature</div>
+        <div class="cover-fact-value">Self-Healing XFS</div>
+      </div>
+    </div>
+    <a class="read-more" href="https://www.theregister.com/2026/04/13/linux_kernel_7_releaseed/" target="_blank" rel="noopener">Read on The Register &rarr;</a>
+  </div>
+</article>
+
+<div class="section-divider"><span>Story 02</span></div>
+
+<!-- ── STORY 02: MIDNIGHT ── -->
+<article class="story story-midnight">
+  <span class="story-tag">Story 02 &mdash; AI / LLMs</span>
+  <h2>OpenAI Ships GPT-6 With Two-Tier Reasoning</h2>
+  <p>
+    OpenAI's GPT-6 introduces a dual-inference architecture: System-1 handles rapid surface responses while System-2 runs internal logic verification before committing an answer. The result: OpenAI claims hallucination rates below 0.1% &mdash; a tenfold improvement over prior models. GPT-6 also powers a unified desktop app merging ChatGPT, Codex, and the Atlas browser into a single environment.
+  </p>
+  <span class="neon-badge">&lt; 0.1% hallucination rate</span>
+  <span class="neon-badge">System-1 + System-2</span>
+  <a class="read-more" href="https://llm-stats.com/ai-news" target="_blank" rel="noopener" style="color:#a88fff; display:block; margin-top:1.5rem;">Full model breakdown &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 03</span></div>
+
+<!-- ── STORY 03: ROSE ── -->
+<article class="story story-rose" style="position:relative;">
+  <div class="rose-stamp">Dev<br>Tools<br>2026</div>
+  <span class="story-tag">Story 03 &mdash; Dev Tools / IaC</span>
+  <h2>Pulumi Neo Deploys Infrastructure from Plain English</h2>
+  <p>
+    Pulumi shipped Pulumi Neo, an AI agent that accepts natural-language prompts and generates, plans, and deploys cloud infrastructure end-to-end. Combined with HashiCorp's deprecation of CDKTF and IBM's $6.4B acquisition of HashiCorp, Pulumi has emerged as the clear winner of the "real programming languages for IaC" category. The IaC market itself has grown to $2.1 billion with a 28.2% CAGR &mdash; Neo puts it on a new trajectory.
+  </p>
+  <a class="read-more" href="https://www.pulumi.com/blog/all-iac-including-terraform-and-hcl/" target="_blank" rel="noopener">Read on Pulumi Blog &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 04</span></div>
+
+<!-- ── STORY 04: TERMINAL ── -->
+<article class="story story-terminal">
+  <span class="story-tag">$ cat story_04.txt &mdash; Cloud / Kubernetes</span>
+  <h2>Kubernetes v1.36 Lands End of April &mdash; GPU Scheduling Gets Serious</h2>
+  <p class="terminal-prompt">k8s v1.36 ships late April 2026 with record enhancement count.</p>
+  <p style="margin-top:1rem; opacity:0.75;">As GPUs become the default hardware paradigm, Kubernetes 1.35 already graduated dynamic resource allocation (DRA) binding conditions to beta. v1.36 continues the charge: new GPU-centric scheduling metrics replace naive CPU/memory indicators, eBPF-powered CNI (Cilium) becomes the recommended plugin, and Gateway API stabilizes further. Nutanix simultaneously launched NKP Metal, extending Kubernetes to bare-metal for AI and edge workloads.</p>
+  <div class="terminal-block">
+    <div class="line">kubectl version --short</div>
+    <div class="line hi">Client: v1.36.0-alpha.3 &nbsp;&bull;&nbsp; Server: v1.35.1</div>
+    <div class="line"># New in v1.36: GPU DRA GA, eBPF CNI default, Gateway API v1.3</div>
+    <div class="line hi"># NKP Metal: bare-metal K8s for AI/edge &mdash; dual-native arch</div>
+  </div>
+  <a class="read-more" href="https://kubernetes.io/blog/" target="_blank" rel="noopener" style="color:#a8ff78; border-color:#a8ff78;">Read Kubernetes Blog &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 05</span></div>
+
+<!-- ── STORY 05: ACADEMIC ── -->
+<article class="story story-academic">
+  <span class="story-tag">Story 05 &mdash; Deep Dive / AI Governance</span>
+  <h2>Linux Foundation Takes Permanent Governance of MCP and A2A</h2>
+  <p class="drop-cap-para">
+    The Linux Foundation's Agentic AI Foundation has been designated the permanent governance home for both the Model Context Protocol (MCP) and the Agent-to-Agent (A2A) protocol &mdash; the two foundational communication standards for agentic AI systems in 2026. MCP handles vertical communication between an agent and its tools and data sources; A2A handles horizontal coordination between multiple collaborating agents. Any production agentic architecture now needs both.
+  </p>
+  <p style="margin-top:1rem; opacity:0.7;">
+    The significance of this governance move cannot be understated. By anchoring both protocols in a vendor-neutral foundation, enterprises gain the assurance that neither Anthropic, Google, nor Microsoft can unilaterally alter the specifications that underpin their multi-agent pipelines. The move mirrors the stabilizing effect the CNCF had on Kubernetes adoption starting in 2016.
+  </p>
+  <a class="read-more" href="https://dev.to/alexmercedcoder/ai-weekly-agents-models-and-chips-april-9-15-2026-486f" target="_blank" rel="noopener">Read AI Weekly recap &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 06</span></div>
+
+<!-- ── STORY 06: BIG-STAT ── -->
+<article class="story story-bigstat">
+  <span class="story-tag" style="display:block; text-align:left;">Story 06 &mdash; Security / Windows</span>
+  <span class="bigstat-number">167</span>
+  <div class="bigstat-unit">Vulnerabilities patched in a single Patch Tuesday</div>
+  <h2>Microsoft Drops Biggest Patch Tuesday in History &mdash; Two Zero-Days Live in the Wild</h2>
+  <p>
+    Microsoft's April 2026 Patch Tuesday fixed 167 security vulnerabilities &mdash; the second-largest ever &mdash; including a SharePoint Server spoofing zero-day (CVE-2026-32201) and a Windows IKE flaw scoring 9.8 CVSS dubbed "BlueHammer." Eight are rated Critical. Security teams have a busy week ahead.
+  </p>
+  <a class="read-more" href="https://www.bleepingcomputer.com/news/microsoft/microsoft-april-2026-patch-tuesday-fixes-167-flaws-2-zero-days/" target="_blank" rel="noopener" style="color:#f0ede8;">Full BleepingComputer analysis &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 07</span></div>
+
+<!-- ── STORY 07: BLUEPRINT ── -->
+<article class="story story-blueprint">
+  <span class="story-tag">Story 07 &mdash; Azure / Platform</span>
+  <h2>Azure Foundry Unlocks Agentic Workflows &amp; AKS Gets NAT Gateway v2</h2>
+  <p>Microsoft's April Azure updates are infrastructure-heavy: Microsoft Foundry gains Agentic Workflows with Task Adherence (preview), auto-upgrade of Azure OpenAI resources to Foundry is now live, and AKS previews StandardV2 NAT Gateway support alongside CNI overlay CIDR expansion for large-scale clusters. On the licensing side, License Mobility for Windows Server and SQL under the Microsoft Customer Agreement activates April 1.</p>
+  <div class="blueprint-cards">
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">Foundry</div>
+      <div class="blueprint-card-value">Agentic Workflows + Task Adherence (preview)</div>
+    </div>
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">AKS</div>
+      <div class="blueprint-card-value">StandardV2 NAT Gateway &amp; CNI Overlay CIDR Expansion</div>
+    </div>
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">Azure Files</div>
+      <div class="blueprint-card-value">Per-protocol encryption-in-transit settings</div>
+    </div>
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">Licensing</div>
+      <div class="blueprint-card-value">License Mobility for Win Server + SQL via MCA &mdash; Apr 1</div>
+    </div>
+  </div>
+  <a class="read-more" href="https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry" target="_blank" rel="noopener" style="color:#4da6ff; margin-top:2rem; position:relative;">Read Microsoft Foundry changelog &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 08</span></div>
+
+<!-- ── STORY 08: ALERT/AMBER ── -->
+<article class="story story-alert">
+  <div class="alert-tape">
+    <span class="alert-tape-inner">
+      &nbsp;&nbsp; &#9888; SECURITY ALERT &nbsp;&bull;&nbsp; CVE-2026-32201 &nbsp;&bull;&nbsp; CVE-2026-33824 &nbsp;&bull;&nbsp; BLUEHAMMER ACTIVE &nbsp;&bull;&nbsp; PATCH NOW &nbsp;&bull;&nbsp; WINDOWS 11 &nbsp;&bull;&nbsp; &#9888; SECURITY ALERT &nbsp;&bull;&nbsp; CVE-2026-32201 &nbsp;&bull;&nbsp; CVE-2026-33824 &nbsp;&bull;&nbsp; BLUEHAMMER ACTIVE &nbsp;&bull;&nbsp; PATCH NOW &nbsp;&bull;&nbsp; WINDOWS 11 &nbsp;&nbsp;
+    </span>
+  </div>
+  <span class="story-tag">Story 08 &mdash; Security / Windows</span>
+  <h2>Windows 11 April Update: Eight New Features, Narrator Breaks Out of Copilot+ Jail</h2>
+  <p>
+    Beyond the security fixes, Microsoft's April 2026 Windows 11 release brings eight meaningful feature additions. Narrator's AI image description capability &mdash; previously locked to Copilot+ PCs &mdash; now runs on all Windows 11 devices. Smart App Control no longer requires an OS reinstall to manage. Display support for refresh rates above 1000 Hz lands for gaming hardware. File Explorer and Settings receive quality-of-life overhauls.
+  </p>
+  <span class="alert-cve">CVE-2026-32201</span>
+  <span class="alert-cve">CVE-2026-33824 (CVSS 9.8)</span>
+  <a class="read-more" href="https://www.windowscentral.com/microsoft/windows-11/8-features-coming-with-the-april-2026-security-update-for-windows-11" target="_blank" rel="noopener" style="color:#ffb700; border-color:#ffb700;">Windows Central feature breakdown &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 09</span></div>
+
+<!-- ── STORY 09: CLOUD GRADIENT ── -->
+<article class="story story-cloud">
+  <div class="cloud-orb-1"></div>
+  <div class="cloud-orb-2"></div>
+  <div class="cloud-orb-3"></div>
+  <span class="story-tag">Story 09 &mdash; Open Source AI</span>
+  <h2>Google Gemma 4: Multimodal, Apache 2.0, Zero Restrictions</h2>
+  <p>
+    Released April 2 under Apache 2.0 with zero commercial restrictions, Google's Gemma 4 family delivers four variants &mdash; 27B dense, 26B-A4B MoE, plus edge-optimized E2B and E4B &mdash; all handling text, images, and audio natively with 256K context windows and 140+ languages. The 31B model ranks #3 globally on the Arena AI leaderboard among all open models, putting it toe-to-toe with commercial offerings at a fraction of the cost.
+  </p>
+  <div class="cloud-tags">
+    <span class="cloud-tag-pill">Apache 2.0</span>
+    <span class="cloud-tag-pill">256K context</span>
+    <span class="cloud-tag-pill">Multimodal</span>
+    <span class="cloud-tag-pill">140+ languages</span>
+    <span class="cloud-tag-pill">#3 Arena AI</span>
+    <span class="cloud-tag-pill">4 variants</span>
+  </div>
+  <a class="read-more" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank" rel="noopener" style="color:#a5b4fc; border-color:#a5b4fc; margin-top:1.5rem; display:inline-block;">Read on Google Blog &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 10</span></div>
+
+<!-- ── STORY 10: HEAT ── -->
+<article class="story story-heat">
+  <span class="story-tag">Story 10 &mdash; Anthropic / AI</span>
+  <h2>Claude Mythos Preview Scores 93.9% on SWE-bench &mdash; Partners Only</h2>
+  <p>
+    Anthropic announced Claude Mythos Preview on April 7, releasing it to approximately 50 partner organizations through Project Glasswing. The model is purpose-built for cybersecurity vulnerability detection, advanced reasoning, and coding, achieving 93.9% on SWE-bench Verified and 94.6% on GPQA Diamond. Preview pricing sits at $25/M input tokens and $125/M output tokens. No public release date has been announced.
+  </p>
+  <div class="heat-scores">
+    <div class="heat-score">
+      <div class="heat-score-pct">93.9%</div>
+      <div class="heat-score-label">SWE-bench Verified</div>
+    </div>
+    <div class="heat-score">
+      <div class="heat-score-pct">94.6%</div>
+      <div class="heat-score-label">GPQA Diamond</div>
+    </div>
+    <div class="heat-score">
+      <div class="heat-score-pct">50</div>
+      <div class="heat-score-label">Partner Orgs (Preview)</div>
+    </div>
+  </div>
+  <a class="read-more" href="https://whatllm.org/blog/new-ai-models-april-2026" target="_blank" rel="noopener" style="display:block; margin-top:1.5rem;">Read What LLM? analysis &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 11</span></div>
+
+<!-- ── STORY 11: MIDNIGHT (GLM-5.1) ── -->
+<article class="story story-midnight">
+  <span class="story-tag">Story 11 &mdash; Open Source AI / LLMs</span>
+  <h2>Zhipu AI Drops GLM-5.1: 744B MIT-Licensed MoE Monster</h2>
+  <p>
+    Zhipu AI released GLM-5.1 under the permissive MIT license &mdash; a 744-billion-parameter mixture-of-experts model with 40 billion active parameters per forward pass and a 200K context window. Its MIT license means it can be used commercially, modified, and redistributed without restriction, making it one of the most capable freely licensed models ever released. The release continues a trend of open-weight models matching commercial performance at a fraction of the inference cost.
+  </p>
+  <span class="neon-badge">744B params</span>
+  <span class="neon-badge">40B active</span>
+  <span class="neon-badge">200K context</span>
+  <span class="neon-badge">MIT license</span>
+  <a class="read-more" href="https://fazm.ai/blog/new-ai-model-releases-open-source-projects-april-2026" target="_blank" rel="noopener" style="color:#a88fff; display:block; margin-top:1.5rem;">Full open model roundup &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 12</span></div>
+
+<!-- ── STORY 12: ROSE (IDE Convergence) ── -->
+<article class="story story-rose" style="position:relative;">
+  <span class="story-tag">Story 12 &mdash; Dev Tools / AI Agents</span>
+  <h2>Cursor, Claude Code &amp; OpenAI Codex Are Converging Into One Environment</h2>
+  <p>
+    The AI coding tool landscape is collapsing into a unified paradigm: Cursor has rebuilt its interface to orchestrate parallel agents rather than single completions; OpenAI published an official plugin that runs Codex inside Claude Code; and the three platforms now share overlapping user bases who switch fluidly between them. What began as distinct products &mdash; autocomplete, chat, CLI agent &mdash; is merging into a single agentic development layer where the human role is review and direction, not line-by-line authorship.
+  </p>
+  <a class="read-more" href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">AI Model news roundup &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 13</span></div>
+
+<!-- ── STORY 13: BLUEPRINT (Engineering Leadership) ── -->
+<article class="story story-blueprint">
+  <span class="story-tag">Story 13 &mdash; Engineering Leadership</span>
+  <h2>Study of 300 Tech Execs: Agentic AI Is Arriving, But Cautiously</h2>
+  <p>A survey of 300 engineering and technology executives conducted in April 2026 found that software teams are beginning to deploy agentic AI systems in production &mdash; but in limited, bounded scopes. The wild optimism of early AI adoption has given way to sober ROI scrutiny: teams want measurable productivity gains, not AI for AI's sake. The most successful deployments are targeting narrow, high-repetition workflows rather than full autonomous engineering cycles.</p>
+  <div class="blueprint-cards">
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">Trend</div>
+      <div class="blueprint-card-value">Agentic AI moving from experiment to bounded production use</div>
+    </div>
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">Sentiment</div>
+      <div class="blueprint-card-value">Sober ROI scrutiny replaces early optimism</div>
+    </div>
+    <div class="blueprint-card">
+      <div class="blueprint-card-label">Winning Strategy</div>
+      <div class="blueprint-card-value">Narrow, high-repetition workflow targeting</div>
+    </div>
+  </div>
+  <a class="read-more" href="https://www.technologyreview.com/2026/04/14/1134397/redefining-the-future-of-software-engineering/" target="_blank" rel="noopener" style="color:#4da6ff; margin-top:2rem; position:relative;">MIT Technology Review &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 14</span></div>
+
+<!-- ── STORY 14: ACADEMIC (Kubernetes Observability) ── -->
+<article class="story story-academic">
+  <span class="story-tag">Story 14 &mdash; Kubernetes / Cloud Infrastructure</span>
+  <h2>Kubernetes Observability Must Evolve Beyond Vendor Dashboards</h2>
+  <p class="drop-cap-para">
+    As GPU-centric workloads become the norm rather than the exception, traditional Kubernetes observability &mdash; CPU usage, memory pressure, pod restarts &mdash; no longer paints an adequate picture. A new InfoQ analysis argues that engineering teams must now track scheduling queue depth, provisioning latency, node lifecycle events, and disruption activity to operate clusters effectively in 2026.
+  </p>
+  <p style="opacity:0.7;">
+    The shift reflects a deeper change: Kubernetes is no longer purely a container orchestrator but an AI workload operating system. As the GPU allocation surface grows, the observability primitives must grow with it. Vendor-provided tooling consistently lags the pace of cluster innovation, pushing platform teams toward open-source stacks combining OpenTelemetry, Prometheus, and eBPF-based tracing with custom signal collection.
+  </p>
+  <a class="read-more" href="https://www.infoq.com/news/2026/03/kubernetes-observability/" target="_blank" rel="noopener">InfoQ deep-dive &rarr;</a>
+</article>
+
+<div class="section-divider"><span>Story 15</span></div>
+
+<!-- ── STORY 15: CLOUD (Windows 365 Price Cut) ── -->
+<article class="story story-cloud">
+  <div class="cloud-orb-1" style="background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%);"></div>
+  <div class="cloud-orb-2" style="background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);"></div>
+  <span class="story-tag">Story 15 &mdash; Microsoft / Cloud</span>
+  <h2>Windows 365 Business Drops 20% on May 1 &mdash; On-Demand Start Launches Too</h2>
+  <p>
+    Microsoft announced a significant list-price reduction for Windows 365 Business: 20% across the board, effective May 1, 2026. Alongside the cut, the company is shipping an on-demand start behavior that keeps Cloud PCs available briefly after sign-out rather than immediately suspending them &mdash; reducing cold-boot friction for users who step away briefly. For organizations running hybrid fleets, the pricing shift meaningfully changes the Windows 365 vs. physical device calculus at scale. Microsoft's Q3 FY2026 earnings on April 29 will reveal whether AI Copilot adoption is accelerating to offset cloud growth headwinds.
+  </p>
+  <div class="cloud-tags">
+    <span class="cloud-tag-pill">20% price cut</span>
+    <span class="cloud-tag-pill">May 1, 2026</span>
+    <span class="cloud-tag-pill">On-demand start</span>
+    <span class="cloud-tag-pill">Cloud PC</span>
+    <span class="cloud-tag-pill">Earnings Apr 29</span>
+  </div>
+  <a class="read-more" href="https://www.hubsite365.com/en-ww/crm-pages/azure-update-10th-april-2026.htm" target="_blank" rel="noopener" style="color:#a5b4fc; border-color:#a5b4fc; margin-top:1.5rem; display:inline-block;">Azure April update details &rarr;</a>
+</article>
+
+<!-- ── FOOTER ── -->
+<footer class="magazine-footer">
+  <div class="footer-brand">Morning Edition</div>
+  <div class="footer-meta">
+    15 stories &nbsp;&bull;&nbsp; Curated from Hacker News &amp; the tech web for r3vOl<br>
+    AI &middot; Cloud &middot; Linux &middot; Azure &middot; Windows &middot; Leadership &middot; Open Source<br>
+    Sunday, April 19, 2026 &nbsp;&bull;&nbsp; Issue 005
+  </div>
+</footer>
+
+</body>
+</html>
